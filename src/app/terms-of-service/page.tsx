@@ -5,8 +5,7 @@ export default function TermsAndConditions() {
         <h1>Terms & Conditions</h1>
         <p>
           Welcome to PawPal! These terms and conditions outline the rules and
-          regulations for the use of PawPal's App, PawPal, located at [Your App
-          URL].
+          regulations for the use of PawPal's App.
         </p>
         <p>
           By accessing this app we assume you accept these terms and conditions.
@@ -20,14 +19,6 @@ export default function TermsAndConditions() {
           intellectual property rights are reserved. You may access this from
           PawPal for your own personal use subjected to restrictions set in
           these terms and conditions.
-        </p>
-        <h2>User Comments</h2>
-        <p>
-          Parts of this app offer an opportunity for users to post and exchange
-          opinions and information in certain areas of the website. PawPal does
-          not filter, edit, publish or review Comments prior to their presence
-          on the website. Comments do not reflect the views and opinions of
-          PawPal, its agents, and/or affiliates.
         </p>
         <h2>Hyperlinking to our Content</h2>
         <p>
