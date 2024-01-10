@@ -13,13 +13,13 @@ const handler = NextAuth({
     ],
     callbacks: {
         async signIn({ user, account, profile }) {
-            if (account.provider === 'google') {
+            if (account && account.provider === 'google') {
                 await dbConnect();
 
                 // Ensure the email exists to prevent TypeScript errors
                 if (user.email) {
                     const existingUser = await User.findOne({ email: user.email });
-                    if (!existingUser) {
+                    if (!existingUser && profile) {
                         await User.create({
                             email: user.email,
                             name: user.name ?? '', // Fallback to empty string if name is undefined

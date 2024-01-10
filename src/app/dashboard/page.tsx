@@ -12,11 +12,11 @@ export default function Dashboard() {
     ownerEmail: session?.user?.email || '',
   });
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setPet({ ...pet, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
     const res = await fetch('/api/addPet', {
       method: 'POST',
