@@ -37,8 +37,8 @@ export default function AffiliateDisclosure() {
         <h2>Questions or Concerns</h2>
         <p>
           If you have any questions or concerns about our use of affiliate
-          links, please do not hesitate to reach out to us at [Your Contact
-          Information]. We are committed to addressing any queries you may have.
+          links, please do not hesitate to reach out to us at . We are committed
+          to addressing any queries you may have.
         </p>
       </div>
     </div>
