@@ -1,113 +1,165 @@
-import Image from 'next/image'
+import Link from 'next/link';
+import Image from 'next/image';
+
+const bentoWords = [
+  'Instant Answers',
+  'Pet Care Simplified',
+  'Expert Advice',
+  '24/7 Assistance',
+  'Tailored Recommendations',
+  'Easy-to-Use',
+  'Reliable Info',
+  'Any Pet, Any Question',
+  'Informed Decisions',
+  'Personalized Care',
+  'Pet Parenting Made Easy',
+  'Interactive Guidance',
+  'Trustworthy Tips',
+  'Convenient Access',
+];
+
+function getRandomColor() {
+  const colors = [
+    'rgb(255, 111, 97)',
+    'rgb(0, 128, 128)',
+    'rgb(72, 183, 167)',
+    'rgb(25, 25, 112)',
+  ];
+  const randomColor = colors[Math.floor(Math.random() * colors.length)];
+  const opacity = 0.4 + Math.random() * 0.6;
+  return randomColor.replace('rgb', 'rgba').replace(')', `, ${opacity})`);
+}
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <div>
+      <div className='relative home-hero'>
+        <div
+          aria-hidden='true'
+          className='absolute inset-0 grid grid-cols-2 -space-x-52 opacity-40 dark:opacity-20'
+        >
+          <div className='blur-[106px] h-56 bg-gradient-to-br from-primary to-purple-400 dark:from-blue-700'></div>
+          <div className='blur-[106px] h-32 bg-gradient-to-r from-cyan-400 to-sky-300 dark:to-indigo-600'></div>
+        </div>
+        <div className='container'>
+          <div className='relative pt-16 ml-auto'>
+            <div>
+              <div className='text-center mx-auto'>
+                <h1 className='text-gray-900 dark:text-white font-bold'>
+                  Your Personal Assistant for a{' '}
+                  <span className='accent-1'>Happier</span>,{' '}
+                  <span className='accent-2'>Healthier Pet</span>
+                </h1>
+                <p className='mt-8 font-medium'>
+                  Instant Answers to All Your Pet Questions, Anytime!
+                </p>
+              </div>
+              <div className='flex justify-center gap-4 mt-8'>
+                <Link href='/login' className='cta'>
+                  Get started
+                </Link>
+                <Link href='/demo' className='cta cta-secondary'>
+                  Try Now
+                </Link>
+              </div>
+              <div className='bento-grid'>
+                {bentoWords.map((word, i) => {
+                  const bgColor = getRandomColor();
+                  const textColor =
+                    bgColor.startsWith('rgba(0, 128, 128') ||
+                    bgColor.startsWith('rgba(25, 25, 112')
+                      ? 'white'
+                      : 'initial';
+
+                  return (
+                    <p
+                      className='bento-word'
+                      key={i}
+                      style={{ backgroundColor: bgColor, color: textColor }}
+                    >
+                      {word}
+                    </p>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
+      <section className='about'>
+        <div className='container grid'>
+          <div>
+            <h2>Driven by a Passion for Pets</h2>
+            <p>
+              At [App Name], we believe every pet deserves the best care, and
+              every pet owner deserves the right information. Our app bridges
+              this gap, offering immediate, trustworthy advice for your
+              pet-related questions. We're dedicated to enhancing the bond
+              between you and your pet through knowledge and understanding.
+            </p>
+          </div>
+          <div>
+            <Image
+              src='/about-photo.avif'
+              alt='About'
+              width={500}
+              height={500}
+            />
+          </div>
+        </div>
+      </section>
+      <section className='features'>
+        <div className='container'>
+          <h2>Empowering Every Pet Owner with Knowledge</h2>
+          <div className='grid'>
+            <div className='feature-1'>
+              <div className='feature-1-content'>
+                <h3 className='font-semibold'>Instant Answers</h3>
+                <p>
+                  Get answers to your pet questions in <span>seconds</span>. Our
+                  AI-powered app is always available to help you find the
+                  information <span>you need</span>.
+                </p>
+              </div>
+            </div>
+            <div className='feature-2'>
+              <div className='feature-2-content'>
+                <h3 className='font-semibold'>Tailored Recommendations</h3>
+                <p>
+                  Get customized recommendations for your pet's needs, including{' '}
+                  <span>food</span>, <span>toys</span>, and <span>more</span>.
+                </p>
+              </div>
+            </div>
+            <div className='feature-3'>
+              <div className='feature-3-content'>
+                <h3 className='font-semibold'>Always Accessible</h3>
+                <p>
+                  Your go-to source for pet queries, <span>anytime</span>,{' '}
+                  <span>anywhere</span>.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section className='get-started'>
+        <div className='container'>
+          <h2>Get Started</h2>
+          <p>
+            Discover a simpler, more joyful way of caring for your pet – where
+            every question finds an answer and every moment counts
           </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
+          <div className='flex gap-4 mt-8'>
+            <Link href='/login' className='cta'>
+              Get started
+            </Link>
+            <Link href='/demo' className='cta cta-secondary'>
+              Try Now
+            </Link>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
 }
