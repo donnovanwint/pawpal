@@ -39,7 +39,7 @@ export default function Disclaimer() {
         <h2>Contact Information</h2>
         <p>
           If you have any questions or concerns about this disclaimer, please
-          contact us at [Your Contact Information].
+          contact us at PawPal.
         </p>
       </div>
     </div>

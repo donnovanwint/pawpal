@@ -24,10 +24,10 @@ export default function TermsAndConditions() {
         <h2>User Comments</h2>
         <p>
           Parts of this app offer an opportunity for users to post and exchange
-          opinions and information in certain areas of the website. [Your
-          Company Name] does not filter, edit, publish or review Comments prior
-          to their presence on the website. Comments do not reflect the views
-          and opinions of PawPal, its agents, and/or affiliates.
+          opinions and information in certain areas of the website. PawPal does
+          not filter, edit, publish or review Comments prior to their presence
+          on the website. Comments do not reflect the views and opinions of
+          PawPal, its agents, and/or affiliates.
         </p>
         <h2>Hyperlinking to our Content</h2>
         <p>
