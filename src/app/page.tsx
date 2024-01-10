@@ -91,11 +91,11 @@ export default function Home() {
           <div>
             <h2>Driven by a Passion for Pets</h2>
             <p>
-              At [App Name], we believe every pet deserves the best care, and
-              every pet owner deserves the right information. Our app bridges
-              this gap, offering immediate, trustworthy advice for your
-              pet-related questions. We're dedicated to enhancing the bond
-              between you and your pet through knowledge and understanding.
+              At pawPal, we believe every pet deserves the best care, and every
+              pet owner deserves the right information. Our app bridges this
+              gap, offering immediate, trustworthy advice for your pet-related
+              questions. We're dedicated to enhancing the bond between you and
+              your pet through knowledge and understanding.
             </p>
           </div>
           <div>
