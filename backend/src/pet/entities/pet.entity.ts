@@ -1,37 +1,39 @@
-import { UserEntity } from 'src/user/entities/user.entity';
-import { Role } from 'src/user/guards/role.enum';
-import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm';
+import {
+    Column,
+    CreateDateColumn,
+    Entity,
+    ManyToOne,
+    PrimaryGeneratedColumn,
+    UpdateDateColumn
+} from 'typeorm';
 import { v4 as uuidv4 } from 'uuid';
 
-@Entity({
-    name: 'pets',
-})
+import { UserEntity } from '../../user/entities/user.entity';
+import { AnimalType, Gender } from '../dto/create-pet.dto';
+
+// pet.entity.ts
+@Entity('pets')
 export class Pet {
     @PrimaryGeneratedColumn('uuid')
     id: string;
 
-    @Column({ name: 'name' })
+    @Column()
     name: string;
 
-    @Column({ name: 'description', nullable: true })
-    description: string;
-
-
     @Column({ nullable: true })
-    gender: string;
+    gender: Gender;
 
     @Column({ type: 'int', nullable: true })
     age: number;
 
     @Column({ name: 'animal_type', nullable: true })
-    animalType: string;
+    animalType: AnimalType;
+    
+    @Column({ name: 'animal_breed', nullable: true })
+    animalBreed: string;
 
-    @Column()
-    userId: string;
-
-    @ManyToOne(() => UserEntity, user => user.pets)
-    @JoinColumn({ name: 'userId' })
-    user: UserEntity;
+    @Column({ type: 'text', nullable: true })
+    description: string;
 
     @CreateDateColumn()
     created_at: Date;
