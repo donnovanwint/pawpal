@@ -35,6 +35,9 @@ export class Pet {
     @Column({ type: 'text', nullable: true })
     description: string;
 
+    @ManyToOne(() => UserEntity, user => user.pets)
+    user: UserEntity;
+
     @CreateDateColumn()
     created_at: Date;
 

@@ -36,7 +36,7 @@ export class UserEntity {
   @Column({ nullable: true })
   token: string;
 
-  @OneToMany(() => Pet, (pet:any) => pet.user)
+  @OneToMany(() => Pet, (pet:any) => pet.user, { cascade: true })
   pets: Pet[];
 
   @CreateDateColumn()
