@@ -11,6 +11,9 @@ import { LoginDto } from './dto/login.dto';
 import { JwtAuthGuard } from './guards/jwt-auth/jwt-auth.guard';
 import { AuthService } from './services/auth/auth.service';
 import { UserService } from './services/user/user.service';
+import { AllowedRoles } from './guards/roles.decorator';
+import { Role } from './guards/role.enum';
+import { RoleGuard } from './guards/role.guard';
 
 @ApiTags('user')
 @Controller('user')
@@ -43,10 +46,8 @@ export class UserController {
   }
 
   @ApiBearerAuth()
-  @UseGuards(JwtAuthGuard)
-  // @AllowedRoles(Role.SuperAdmin)
-  // @UseInterceptors(CacheInterceptor)
-  // @CacheKey('getUsers')
+  @UseGuards(JwtAuthGuard, RoleGuard)
+  @AllowedRoles(Role.SuperAdmin)
   @Get()
   async getUsers() {
     const users = await this.userService.getAll();

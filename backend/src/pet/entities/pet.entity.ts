@@ -3,6 +3,7 @@ import {
     CreateDateColumn,
     Entity,
     ManyToOne,
+    OneToMany,
     PrimaryGeneratedColumn,
     UpdateDateColumn
 } from 'typeorm';
@@ -10,6 +11,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 import { UserEntity } from '../../user/entities/user.entity';
 import { AnimalType, Gender } from '../dto/create-pet.dto';
+import { Chat } from 'src/chat/entities/chat.entity';
 
 // pet.entity.ts
 @Entity('pets')
@@ -23,8 +25,8 @@ export class Pet {
     @Column({ nullable: true })
     gender: Gender;
 
-    @Column({ type: 'int', nullable: true })
-    age: number;
+    @Column({ type: 'text', nullable: true })
+    age: string;
 
     @Column({ name: 'animal_type', nullable: true })
     animalType: AnimalType;
@@ -34,6 +36,9 @@ export class Pet {
 
     @Column({ type: 'text', nullable: true })
     description: string;
+
+    @OneToMany(() => Chat, chat => chat.pet)
+    chats: Chat;
 
     @ManyToOne(() => UserEntity, user => user.pets)
     user: UserEntity;

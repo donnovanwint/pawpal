@@ -9,7 +9,6 @@ import { getConfig } from '../services/app-config/configuration';
         const {
           database: { host, port, password, user, dbName },
         } = getConfig();
-        console.log('Database Configuration:', { host, port, user, password, dbName });
         return {
           type: 'postgres', 
           host,

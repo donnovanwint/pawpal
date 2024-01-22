@@ -23,12 +23,16 @@ export class CreatePetDto {
     gender?: Gender;
 
     @IsOptional()
-    @IsInt()
-    age?: number;
+    @IsString()
+    age?: string;
 
     @IsOptional()
     @IsEnum(AnimalType)
     animalType?: AnimalType;
+
+    @IsOptional()
+    @IsString()
+    animalBreed?: string;
 
     @IsOptional()
     @IsString()

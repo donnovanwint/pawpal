@@ -4,6 +4,7 @@ import { ValidationPipe } from '@nestjs/common';
 import { AppLoggerService } from './logger/services/app-logger/app-logger.service';
 import * as bodyParser from 'body-parser';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
+import 'web-streams-polyfill';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);

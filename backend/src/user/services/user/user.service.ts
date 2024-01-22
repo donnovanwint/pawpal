@@ -62,6 +62,7 @@ export class UserService {
 
   public async getAll(): Promise<UserEntity[]> {
     return await this.usersRepository.find({
+      relations: ['pets'],
       select: ['id', 'email', 'lastName', 'firstName', 'role', 'created_at'],
     });
   }
@@ -72,7 +73,7 @@ export class UserService {
     });
   }
 
-  async delete(id:number){
+  async delete(id: number) {
     await this.usersRepository.delete(id)
   }
 }
